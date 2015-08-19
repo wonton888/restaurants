@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+    <title>Restaurant Reviews</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Restaurant Reviewer</h1>
+
+        <p>Add a New Cuisine:</p>
+
+        <form action="/cuisines" method="post">
+            <label for="type">Cuisine Type:</label>
+            <input id="type" name="type" type="text">
+
+            <button class="btn-default" type="submit">Add</button>
+        </form>
+
+        {% if cuisines is not empty %}
+            <p>All Cuisines:</p>
+            <ul>
+                {% for cuisine in cuisines %}
+                    <li><a href="/cuisines/{{ cuisine.getId }}">{{ cuisine.getType }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No Cuisines Added!</p>
+        {% endif %}
+        <br/>
+        <form action="/delete_cuisines" method="post">
+            <button class="btn-danger" type="submit">Delete All</button>
+        </form>
+
+    </div>
+</body>
+</html>
