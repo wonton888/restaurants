@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+        <title>To Do List</title>
+    </head>
+    <body>
+        <div class="container">
+        <h1>Restaurants</h1>
+        {% if restaurants is not empty %}
+            <p>Here are all your restaurants:</p>
+            <ul>
+                {% for restaurant in restaurants %}
+                    <li>{{ restaurant.getDescription }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <form action="/restaurants" method="post">
+            <label for="name">Restaurant Name</label>
+            <input id="name" name="name" type="text">
+
+            <button class="btn btn-default" type="submit">Add restaurant</button>
+        </form>
+        <form action="/delete_restaurants" method="post">
+            <button class="btn btn-danger" type="submit">Clear</button>
+        </form>
+        <br/>
+        <a href="/"><button class="btn-default">Home</button></a>
+    </div>
+    </body>
+</html>
