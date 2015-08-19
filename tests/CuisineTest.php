@@ -6,7 +6,7 @@
     */
 
     require_once "src/Cuisine.php";
-    require_once "src/Restaurant.php";
+    //require_once "src/Restaurant.php";
 
     $server = 'mysql:host=localhost;dbname=restaurant_reviews_test';
     $username = 'root';
@@ -19,10 +19,37 @@
         protected function tearDown()
         {
             Cuisine::deleteAll();
-            Restaurant::deleteAll();
+        //    Restaurant::deleteAll();
         }
 
-        function test_deleteAll()
+        function testGetType()
+        {
+            //Arrange
+            $type = "Italian";
+            $test_Cuisine = new Cuisine($type);
+
+            //Act
+            $result = $test_Cuisine->getType();
+
+            //Assert
+            $this->assertEquals($type, $result);
+        }
+
+        function testGetId()
+        {
+            //Arrange
+            $type = "Italian";
+            $id = 1;
+            $test_Cuisine = new Cuisine($type, $id);
+
+            //Act
+            $result = $test_Cuisine->getId();
+
+            //Assert
+            $this->assertEquals(true, is_numeric($result));
+        }
+
+        function testDeleteAll()
         {
             //Arrange
             $type = "Italian";
@@ -40,22 +67,37 @@
             $this->assertEquals([], $result);
         }
 
-        // function test_getAll()
-        // {
-        //     //Arrange
-        //     $type = "Work stuff";
-        //     $type2 = "Home stuff";
-        //     $test_Category = new Category($type);
-        //     $test_Category->save();
-        //     $test_Category2 = new Category($type2);
-        //     $test_Category2->save();
-        //
-        //     //Act
-        //     $result = Category::getAll();
-        //
-        //     //Assert
-        //     $this->assertEquals([$test_Category, $test_Category2], $result);
-        // }
+        function testGetAll()
+        {
+            //Arrange
+            $type = "Italian";
+            $type2 = "Japanese";
+            $test_Cuisine = new Cuisine($type);
+            $test_Cuisine->save();
+            $test_Cuisine2 = new Cuisine($type2);
+            $test_Cuisine2->save();
+
+            //Act
+            $result = Cuisine::getAll();
+
+            //Assert
+            $this->assertEquals([$test_Cuisine, $test_Cuisine2], $result);
+        }
+
+        function testSave()
+        {
+            //Arrange
+            $type = "Italian";
+            $test_Cuisine = new Cuisine($type);
+            $test_Cuisine->save();
+
+
+            //Act
+            $result = Cuisine::getAll();
+
+            //Assert
+            $this->assertEquals($test_Cuisine, $result[0]);
+        }
 
     }
 

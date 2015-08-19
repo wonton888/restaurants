@@ -4,11 +4,10 @@
         private $id;
         private $type;
 
-        function __construct($id = null, $type)
+        function __construct($type, $id = null)
         {
-            $this->id = $id;
             $this->type = $type;
-
+            $this->id = $id;
         }
 
         function setId($new_id)
@@ -56,6 +55,6 @@
         {
             $GLOBALS['DB']->exec("DELETE FROM cuisines;");
         }
-        
+
     }
 ?>
