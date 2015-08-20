@@ -1,14 +1,16 @@
-html,
-body {
-/*css for full size background image*/
-      background: url(/../img/bg2.jpg) no-repeat center center fixed;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;
-      background-color: #000;
+/*full size, scaling background image*/
+
+html, body {
+    background: url(/../img/bg2.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color: #000;
 }
 
+/*rounded and semi-transparent center div*/
+/*font for body text*/
 div.main {
     margin: 30px;
     background: rgba(255,255,255,0.5);
@@ -18,7 +20,38 @@ div.main {
     font-family: 'Maven Pro', sans-serif;
 }
 
+/*font for header*/
 .header {
     font-family: 'Pacifico', cursive;
     font-size: 40px;
+}
+
+
+/* unvisited link */
+a:link {
+    color: #000;
+    text-transform: uppercase;
+}
+
+/* visited link */
+a:visited {
+    color: #000;
+    text-transform: uppercase;
+}
+
+/* mouse over link */
+a:hover {
+    color: #000;
+    text-transform: uppercase;
+}
+
+/* selected link */
+a:active {
+    color: #000;
+    text-transform: uppercase;
+}
+
+/*displays listed items side by side*/
+inline-nav, li {
+    display: inline;
 }

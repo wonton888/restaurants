@@ -8,96 +8,58 @@
 </head>
 <body>
     <div class="container">
-    <div class="site-wrapper">
-  <div class="site-wrapper-inner">
-    <div class="cover-container">
-      <div class="masthead clearfix">
-        <div class="inner">
-          <h3 class="masthead-brand">&nbsp</h3>
-
-          <ul class="nav masthead-nav">
-            <li class="active">
-              &nbsp
-            </li>
-
-            <li>
-                &nbsp<!-- restaurants-->
-            </li>
-
-            <li>
-                &nbsp
-            </li>
-          </ul>
+        <div class="site-wrapper">
+            <div class="site-wrapper-inner">
+                <div class="cover-container">
+                    <div class="masthead clearfix">
+                        <div class="inner">
+                            <h3 class="masthead-brand">&nbsp</h3>
+                            <ul class="nav masthead-nav">
+                                <p>&nbsp</p>
+                                <p>&nbsp</p>
+                                <p>&nbsp</p>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="inner cover">
+                        <div class="main">
+                            <h1 class="cover-heading header">Welcome to Restaurant Reviewer</h1>
+                            <p class="lead">
+                                <h2>Restaurants</h2>
+                                <!-- Twig to display all restaurants and descriptions -->
+                                {% if restaurants is not empty %}
+                                <p>Here are all your restaurants:</p>
+                                <ul>
+                                    {% for restaurant in restaurants %}
+                                    <li>{{ restaurant.getName }}</li>
+                                    <li>{{ restaurant.getDescription }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                                <form action="/restaurants" method="post">
+                                    <label for="name">Restaurant Name</label>
+                                    <input id="name" name="name" type="text">
+                                    <button class="btn btn-default" type="submit">Add restaurant</button>
+                                </form>
+                                <form action="/delete_restaurants" method="post">
+                                    <button class="btn btn-danger" type="submit">Clear</button>
+                                </form>
+                                <br/>
+                                <a href="/"><button class="btn-default">Home</button></a>
+                            </p>
+                    </div>
+                </div>
+                <div class="mastfoot">
+                    <div class="inner">
+                        <!-- Validation -->
+                        <p>&nbsp</p>
+                        <p>&nbsp</p>
+                        <p>&nbsp</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div class="inner cover">
-          <div class="main">
-        <h1 class="cover-heading header">Welcome to Restaurant Reviewer</h1>
-
-        <p class="lead">
-
-
-
-            <h2>Restaurants</h2>
-
-            <!-- Twig to display all restaurants and descriptions -->
-            {% if restaurants is not empty %}
-                <p>Here are all your restaurants:</p>
-                <ul>
-                    {% for restaurant in restaurants %}
-                        <li>{{ restaurant.getName }}</li>
-                        <li>{{ restaurant.getDescription }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-
-            <form action="/restaurants" method="post">
-                <label for="name">Restaurant Name</label>
-                <input id="name" name="name" type="text">
-                <button class="btn btn-default" type="submit">Add restaurant</button>
-            </form>
-
-            <form action="/delete_restaurants" method="post">
-                <button class="btn btn-danger" type="submit">Clear</button>
-            </form>
-            <br/>
-            <a href="/"><button class="btn-default">Home</button></a>
-
-
-        </p>
-
-<!--
-        <p class="lead">Cover is a one-page template for building simple and
-        beautiful home pages. Download, edit the text, and add your own
-        fullscreen background color and photo to make it your own.
-
-        <small>    <br> <a href="http://bootsnipp.com/iframe/g6GWQ" target=
-              "_blank">Best viewed on full screen</a></small>
-
-        </p>
-
-        <p class="lead"><a class="btn btn-lg btn-info" href="#">Learn
-        more</a></p> -->
-      </div>
-  </div>
-      <div class="mastfoot">
-        <div class="inner">
-          <!-- Validation -->
-
-          <p>&nbsp</p>
-
-
-          <p>&nbsp</p>
-
-
-
-          <p>&nbsp</p>
-        </div>
-      </div>
     </div>
-</div>
-</div>
 </div>
 </body>
 </html>

@@ -8,89 +8,59 @@
 </head>
 <body>
     <div class="container">
-    <div class="site-wrapper">
-  <div class="site-wrapper-inner">
-    <div class="cover-container">
-      <div class="masthead clearfix">
-        <div class="inner">
-          <h3 class="masthead-brand">&nbsp</h3>
+        <div class="site-wrapper">
+            <div class="site-wrapper-inner">
+                <div class="cover-container">
+                    <div class="masthead clearfix">
+                        <div class="inner">
+                            <h3 class="masthead-brand">&nbsp</h3>
+                            <ul class="nav masthead-nav">
+                                <p>&nbsp</p>
+                                <p>&nbsp<</p>
+                                <p>&nbsp</p>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="inner cover">
+                        <div class="main">
+                            <h1 class="cover-heading header">Welcome to Restaurant Reviewer</h1>
 
-          <ul class="nav masthead-nav">
-            <li class="active">
-              &nbsp
-            </li>
-
-            <li>
-                &nbsp<!-- index -->
-            </li>
-
-            <li>
-                &nbsp
-            </li>
-          </ul>
+                            <p class="lead">
+                                <div class="inline-nav">
+                                    {% if cuisines is not empty %}
+                                    <ul>
+                                        <li>All Cuisines:</li>
+                                        {% for cuisine in cuisines %}
+                                        <li><a href="/cuisines/{{ cuisine.getId }}">{{ cuisine.getType }}</a> |</li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% else %}
+                                    <p>No Cuisines Added!</p>
+                                    {% endif %}
+                                </div>
+                                <form action="/cuisines" method="post">
+                                    <label for="type">Add a cuisine:</label>
+                                    <input id="type" name="type" placeholder="Chinese" type="text" required>
+                                    <button class="btn-default" type="submit">Add</button>
+                                </form>
+                                <br/>
+                                <form action="/delete_cuisines" method="post">
+                                    <button class="btn-danger" type="submit">Delete All</button>
+                                </form>
+                            </p>
+                    </div>
+                </div>
+                <div class="mastfoot">
+                    <div class="inner">
+                        <!-- Validation -->
+                        <p>&nbsp</p>
+                        <p>&nbsp</p>
+                        <p>&nbsp</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div class="inner cover">
-          <div class="main">
-        <h1 class="cover-heading header">Welcome to Restaurant Reviewer</h1>
-
-        <p class="lead">
-            <p>Add a New Cuisine:</p>
-            <form action="/cuisines" method="post">
-                <label for="type">Cuisine Type:</label>
-                <input id="type" name="type" type="text" required>
-                <button class="btn-default" type="submit">Add</button>
-            </form>
-
-            {% if cuisines is not empty %}
-                <p>All Cuisines:</p>
-                <ul>
-                    {% for cuisine in cuisines %}
-                        <li><a href="/cuisines/{{ cuisine.getId }}">{{ cuisine.getType }}</a></li>
-                    {% endfor %}
-                </ul>
-            {% else %}
-                <p>No Cuisines Added!</p>
-            {% endif %}
-
-            <br/>
-            <form action="/delete_cuisines" method="post">
-                <button class="btn-danger" type="submit">Delete All</button>
-            </form>
-        </p>
-
-<!--
-        <p class="lead">Cover is a one-page template for building simple and
-        beautiful home pages. Download, edit the text, and add your own
-        fullscreen background color and photo to make it your own.
-
-        <small>    <br> <a href="http://bootsnipp.com/iframe/g6GWQ" target=
-              "_blank">Best viewed on full screen</a></small>
-
-        </p>
-
-        <p class="lead"><a class="btn btn-lg btn-info" href="#">Learn
-        more</a></p> -->
-      </div>
-  </div>
-      <div class="mastfoot">
-        <div class="inner">
-          <!-- Validation -->
-
-          <p>&nbsp</p>
-
-
-          <p>&nbsp</p>
-
-
-
-          <p>&nbsp</p>
-        </div>
-      </div>
     </div>
-</div>
-</div>
 </div>
 </body>
 </html>
