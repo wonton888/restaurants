@@ -26,10 +26,6 @@
     });
 
     $app->post("/cuisines", function() use ($app) {
-        // $input = $_POST['type'];
-        // $clean_input = preg_quote($input, "'");
-        // // "/[-[\]{}()*+?.,\\^$|#']/"
-        // echo $clean_input;
         $cuisine = new Cuisine(preg_quote($_POST['type'], "'"));
         $cuisine->save();
         return $app['twig']->render('index.html.twig',
@@ -47,8 +43,6 @@
 
         return $app['twig']->render('cuisine.html.twig',
         array('cuisine' => $cuisine, 'restaurants' => $cuisine->getRestaurants()));
-//        return $app['twig']->render('cuisine.html.twig',
-//        array('cuisine' => $cuisine));
     });
 
     $app->post("/restaurants", function() use ($app){

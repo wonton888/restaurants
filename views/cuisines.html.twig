@@ -1,32 +1,103 @@
+
 <html>
 <head>
+    <link rel="stylesheet" href="../../css/custom.css" type="text/css">
+    <link rel="stylesheet" href="../css/custom.css" type="text/css">
+    <link rel="stylesheet" href="css/custom.css" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
-    <title>Restaurant Reviewer</title>
 </head>
 <body>
     <div class="container">
-        <h1>Cuisines</h1>
+    <div class="site-wrapper">
+  <div class="site-wrapper-inner">
+    <div class="cover-container">
+      <div class="masthead clearfix">
+        <div class="inner">
+          <h3 class="masthead-brand">&nbsp</h3>
 
-        {% if cuisines is not empty %}
-            <p>Here are all your cuisines:</p>
-            <ul>
-                {% for cuisine in cuisines %}
-                    <li>{{ cuisine.getType }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
+          <ul class="nav masthead-nav">
+            <li class="active">
+              &nbsp
+            </li>
 
-        <form action="/cuisines" method="post">
-            <label for="type">Cuisine Name</label>
-            <input id="type" name="type" type="text" required>
-            <button class="btn btn-primary" type="submit">Add Cuisine</button>
-        </form>
+            <li>
+                &nbsp<!-- cuisines -->
+            </li>
 
-        <form action="/delete_cuisines" method="post">
-            <button class="btn btn-danger" type="submit">Delete</button>
-        </form>
-        <br/>
-        <p><a class="btn btn-default" href="/">Home</a></p>
+            <li>
+                &nbsp
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="inner cover">
+          <div class="main">
+        <h1 class="cover-heading header">Welcome to Restaurant Reviewer</h1>
+
+        <p class="lead">
+
+
+
+            <h2>Cuisines</h2>
+
+            {% if cuisines is not empty %}
+                <p>Here are all your cuisines:</p>
+                <ul>
+                    {% for cuisine in cuisines %}
+                        <li>{{ cuisine.getType }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <form action="/cuisines" method="post">
+                <label for="type">Cuisine Name</label>
+                <input id="type" name="type" type="text" required>
+                <button class="btn btn-primary" type="submit">Add Cuisine</button>
+            </form>
+
+            <form action="/delete_cuisines" method="post">
+                <button class="btn btn-danger" type="submit">Delete</button>
+            </form>
+            <br/>
+            <p><a class="btn btn-default" href="/">Home</a></p>
+
+
+        </p>
+
+<!--
+        <p class="lead">Cover is a one-page template for building simple and
+        beautiful home pages. Download, edit the text, and add your own
+        fullscreen background color and photo to make it your own.
+
+        <small>    <br> <a href="http://bootsnipp.com/iframe/g6GWQ" target=
+              "_blank">Best viewed on full screen</a></small>
+
+        </p>
+
+        <p class="lead"><a class="btn btn-lg btn-info" href="#">Learn
+        more</a></p> -->
+      </div>
+  </div>
+      <div class="mastfoot">
+        <div class="inner">
+          <!-- Validation -->
+
+          <p>&nbsp</p>
+
+
+          <p>&nbsp</p>
+
+
+
+          <p>&nbsp</p>
+        </div>
+      </div>
     </div>
+</div>
+</div>
+</div>
 </body>
 </html>

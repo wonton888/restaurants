@@ -2,9 +2,9 @@
 <head>
     <link rel="stylesheet" href="../css/custom.css" type="text/css">
     <link rel="stylesheet" href="css/custom.css" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css' />
-    <link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css' />
-    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css' />
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
 </head>
 <body>
     <div class="container">
@@ -21,7 +21,7 @@
             </li>
 
             <li>
-                &nbsp<!-- index -->
+                &nbsp<!-- restaurants-->
             </li>
 
             <li>
@@ -39,46 +39,30 @@
 
 
 
+            <h2>Restaurants</h2>
 
-            <h2>{{ cuisine.getType }} Cuisine</h2>
-
+            <!-- Twig to display all restaurants and descriptions -->
             {% if restaurants is not empty %}
-                <p>Reviewed Restaurants:</p>
-
+                <p>Here are all your restaurants:</p>
                 <ul>
                     {% for restaurant in restaurants %}
                         <li>{{ restaurant.getName }}</li>
-                        <ul>
-                            <li>{{ restaurant.getDescription }}</li>
-                        </ul>
+                        <li>{{ restaurant.getDescription }}</li>
                     {% endfor %}
                 </ul>
             {% endif %}
 
-            <h4>Add a restaurant:</h4>
-
-            <form action='/restaurants' method='post'>
-                <input id='cuisine_id' name='cuisine_id' type='hidden' value='{{ cuisine.getId() }}'>
-                <label for ='name'>Restaurant Name:</label><br/>
-                <input id='name' name='name' type='text' placeholder="" required>
-                <br/>
-                <label for ='description'>Restaurant Description:</label><br/>
-                <input id='description' name='description' type='text' required>
-                <button class="btn-default" type='submit'>Add restaurant</button>
+            <form action="/restaurants" method="post">
+                <label for="name">Restaurant Name</label>
+                <input id="name" name="name" type="text">
+                <button class="btn btn-default" type="submit">Add restaurant</button>
             </form>
 
             <form action="/delete_restaurants" method="post">
-                <button class="btn-danger" type="submit">Clear</button>
+                <button class="btn btn-danger" type="submit">Clear</button>
             </form>
-
-            <a href="/cuisines/{{ cuisine.getId }}/edit"> <button class="btn-default">Edit this cuisine</button></a>
-
+            <br/>
             <a href="/"><button class="btn-default">Home</button></a>
-
-
-
-
-
 
 
         </p>

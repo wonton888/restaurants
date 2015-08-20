@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+    <title>Restaurant Reviewer</title>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Twig to display all restaurants and descriptions -->
+        <h1>{{ cuisine.getType }} Cuisine</h1>
+
+        {% if restaurants is not empty %}
+            <p>Reviewed Restaurants:</p>
+
+            <ul>
+                {% for restaurant in restaurants %}
+                    <li>{{ restaurant.getName }}</li>
+                    <ul>
+                        <li>{{ restaurant.getDescription }}</li>
+                    </ul>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <h4>Add a restaurant:</h4>
+
+        <form action='/restaurants' method='post'>
+            <input id='cuisine_id' name='cuisine_id' type='hidden' value='{{ cuisine.getId() }}'>
+            <label for ='name'>Restaurant Name:</label><br/>
+            <input id='name' name='name' type='text' placeholder="" required>
+            <br/>
+            <label for ='description'>Restaurant Description:</label><br/>
+            <input id='description' name='description' type='text' required>
+            <button class="btn-default" type='submit'>Add restaurant</button>
+        </form>
+
+        <form action="/delete_restaurants" method="post">
+            <button class="btn-danger" type="submit">Clear</button>
+        </form>
+
+        <a href="/cuisines/{{ cuisine.getId }}/edit"> <button class="btn-default">Edit this cuisine</button></a>
+
+        <a href="/"><button class="btn-default">Home</button></a>
+    </div>
+</body>
+</html>
