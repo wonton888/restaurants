@@ -9,85 +9,85 @@
 </head>
 <body>
     <div class="container">
-    <div class="site-wrapper">
-  <div class="site-wrapper-inner">
-    <div class="cover-container">
-      <div class="masthead clearfix">
-        <div class="inner">
-          <h3 class="masthead-brand">&nbsp</h3>
+        <div class="site-wrapper">
+            <div class="site-wrapper-inner">
+                <div class="cover-container">
+                    <div class="masthead clearfix">
+                        <div class="inner">
+                            <h3 class="masthead-brand">&nbsp</h3>
 
-          <ul class="nav masthead-nav">
-            <p class="active">
-              &nbsp
-          </p>
+                            <ul class="nav masthead-nav">
+                                <p class="active">
+                                    &nbsp
+                                </p>
 
-            <p>
-                &nbsp<!-- index -->
-            </p>
+                                <p>
+                                    &nbsp<!-- index -->
+                                </p>
 
-            <p>
-                &nbsp
-            </p>
-          </ul>
+                                <p>
+                                    &nbsp
+                                </p>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="inner cover">
+                        <div class="main">
+                            <h1 class="cover-heading header">Welcome to Restaurant Reviewer</h1>
+
+                            <p class="lead">
+
+
+
+                                <h2>Update the {{ cuisine.getType }} cuisine</h2>
+
+                                <form action="/cuisines/{{ cuisine.getId }}" method="post">
+                                    <input name="_method" type="hidden" value="patch">
+                                    <label for="type">Rename your Cuisine:</label>
+                                    <input id="type" name="type" type="text" required>
+                                    <button class="btn-default" type="submit">Update</button>
+                                </form>
+
+                                <form action="/cuisines/{{ cuisine.getId }}" method="post">
+                                    <input name="_method" type="hidden" value="delete">
+                                    <button class="btn-danger" type="submit">Delete this Cuisine</button>
+                                </form>
+
+
+                            </p>
+
+                            <!--
+                            <p class="lead">Cover is a one-page template for building simple and
+                            beautiful home pages. Download, edit the text, and add your own
+                            fullscreen background color and photo to make it your own.
+
+                            <small>    <br> <a href="http://bootsnipp.com/iframe/g6GWQ" target=
+                            "_blank">Best viewed on full screen</a></small>
+
+                        </p>
+
+                        <p class="lead"><a class="btn btn-lg btn-info" href="#">Learn
+                        more</a></p> -->
+                    </div>
+                </div>
+                <div class="mastfoot">
+                    <div class="inner">
+                        <!-- Validation -->
+
+                        <p>&nbsp</p>
+
+
+                        <p>&nbsp</p>
+
+
+
+                        <p>&nbsp</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div class="inner cover">
-          <div class="main">
-        <h1 class="cover-heading header">Welcome to Restaurant Reviewer</h1>
-
-        <p class="lead">
-
-
-
-            <h2>Update the {{ cuisine.getType }} cuisine</h2>
-
-            <form action="/cuisines/{{ cuisine.getId }}" method="post">
-                <input name="_method" type="hidden" value="patch">
-                <label for="type">Rename your Cuisine:</label>
-                <input id="type" name="type" type="text" required>
-                <button class="btn-default" type="submit">Update</button>
-            </form>
-
-            <form action="/cuisines/{{ cuisine.getId }}" method="post">
-                <input name="_method" type="hidden" value="delete">
-                <button class="btn-danger" type="submit">Delete this Cuisine</button>
-            </form>
-
-
-        </p>
-
-<!--
-        <p class="lead">Cover is a one-page template for building simple and
-        beautiful home pages. Download, edit the text, and add your own
-        fullscreen background color and photo to make it your own.
-
-        <small>    <br> <a href="http://bootsnipp.com/iframe/g6GWQ" target=
-              "_blank">Best viewed on full screen</a></small>
-
-        </p>
-
-        <p class="lead"><a class="btn btn-lg btn-info" href="#">Learn
-        more</a></p> -->
-      </div>
-  </div>
-      <div class="mastfoot">
-        <div class="inner">
-          <!-- Validation -->
-
-          <p>&nbsp</p>
-
-
-          <p>&nbsp</p>
-
-
-
-          <p>&nbsp</p>
-        </div>
-      </div>
     </div>
-</div>
-</div>
 </div>
 </body>
 </html>
