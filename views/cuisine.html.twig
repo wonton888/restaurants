@@ -1,10 +1,11 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
-        <title>Restaurant Reviewer</title>
-    </head>
-    <body>
-        <div class="container">
+<head>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+    <title>Restaurant Reviewer</title>
+</head>
+<body>
+    <div class="container">
         <h1>{{ cuisine.getType }}</h1>
 
         {% if restaurants is not empty %}
@@ -26,7 +27,6 @@
             <br/>
             <label for ='description'>Restaurant Description:</label><br/>
             <input id='description' name='description' type='text'>
-
             <button class="btn-default" type='submit'>Add restaurant</button>
         </form>
 
@@ -37,6 +37,6 @@
         <a href="/cuisines/{{ cuisine.getId }}/edit"> <button class="btn-default">Edit this cuisine</button></a>
 
         <a href="/"><button class="btn-default">Home</button></a>
-        </div>
-    </body>
+    </div>
+</body>
 </html>

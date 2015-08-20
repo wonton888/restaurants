@@ -5,7 +5,7 @@
 
     $app = new Silex\Application();
 
-    $app['debug'] = true;
+    // $app['debug'] = true;
 
     $server = 'mysql:host=localhost;dbname=restaurant_reviews';
     $username = 'root';
@@ -25,10 +25,10 @@
     });
 
     $app->post("/cuisines", function() use ($app) {
-            $cuisine = new Cuisine($_POST['type']);
-            $cuisine->save();
-            return $app['twig']->render('index.html.twig',
-            array('cuisines' => Cuisine::getAll()));
+        $cuisine = new Cuisine($_POST['type']);
+        $cuisine->save();
+        return $app['twig']->render('index.html.twig',
+        array('cuisines' => Cuisine::getAll()));
     });
 
     $app->post("/delete_cuisines", function() use ($app) {
@@ -38,7 +38,7 @@
 
     $app->get("/cuisines/{id}", function($id) use ($app) {
         $cuisine = Cuisine::find($id);
-        return $app['twig']->render('cuisine_edit.html.twig',
+        return $app['twig']->render('cuisine.html.twig',
         array('cuisine' => $cuisine));
     });
 
@@ -46,7 +46,7 @@
         $type = $_POST['type'];
         $cuisine = Cuisine::find($id);
         $cuisine->update($type);
-        return $app['twig']->render('cuisine.html.twig',
+        return $app['twig']->render('cuisine_edit.html.twig',
         array('cuisine' => $cuisine, 'restaurants' => $cuisine->getRestaurants()));
     });
 
@@ -71,7 +71,8 @@
     });
 
     $app->get("/restaurants", function() use ($app) {
-        return $app['twig']->render('restaurants.html.twig', array('restaurants' => Restaurant::getAll()));
+        return $app['twig']->render('restaurants.html.twig',
+        array('restaurants' => Restaurant::getAll()));
     });
 
     $app->post("/restaurants", function() use ($app){
@@ -81,10 +82,10 @@
         $restaurant = new Restaurant($description, $id = null, $cuisine_id, $name);
         $restaurant->save();
         $cuisine = Cuisine::find($cuisine_id);
-        return $app['twig']->render('cuisine.html.twig', array('cuisine' => $cuisine, 'restaurants' => Restaurant::getAll()));
+        return $app['twig']->render('cuisine.html.twig',
+        array('cuisine' => $cuisine, 'restaurants' => Restaurant::getAll()));
 
     });
-
 
     return $app;
 

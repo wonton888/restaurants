@@ -1,37 +1,94 @@
-<!DOCTYPE html>
 <html>
 <head>
+    <!-- <link rel="stylesheet" href="css/custom.css" type="text/css"> -->
+
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
-    <title>Restaurant Reviews</title>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to Restaurant Reviewer</h1>
+    <div class="site-wrapper">
+  <div class="site-wrapper-inner">
+    <div class="cover-container">
+      <div class="masthead clearfix">
+        <div class="inner">
+          <h3 class="masthead-brand">&nbsp</h3>
 
-        <p>Add a New Cuisine:</p>
+          <ul class="nav masthead-nav">
+            <li class="active">
+              &nbsp
+            </li>
 
-        <form action="/cuisines" method="post">
-            <label for="type">Cuisine Type:</label>
-            <input id="type" name="type" type="text">
+            <li>
+                &nbsp
+            </li>
 
-            <button class="btn-default" type="submit">Add</button>
-        </form>
+            <li>
+                &nbsp
+            </li>
+          </ul>
+        </div>
+      </div>
 
-        {% if cuisines is not empty %}
-            <p>All Cuisines:</p>
-            <ul>
-                {% for cuisine in cuisines %}
-                    <li><a href="/cuisines/{{ cuisine.getId }}">{{ cuisine.getType }}</a></li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>No Cuisines Added!</p>
-        {% endif %}
-        <br/>
-        <form action="/delete_cuisines" method="post">
-            <button class="btn-danger" type="submit">Delete All</button>
-        </form>
+      <div class="inner cover">
+        <h1 class="cover-heading">Welcome to Restaurant Reviewer</h1>
 
+        <p class="lead">
+            <p>Add a New Cuisine:</p>
+            <form action="/cuisines" method="post">
+                <label for="type">Cuisine Type:</label>
+                <input id="type" name="type" type="text">
+                <button class="btn-default" type="submit">Add</button>
+            </form>
+
+            {% if cuisines is not empty %}
+                <p>All Cuisines:</p>
+                <ul>
+                    {% for cuisine in cuisines %}
+                        <li><a href="/cuisines/{{ cuisine.getId }}">{{ cuisine.getType }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No Cuisines Added!</p>
+            {% endif %}
+
+            <br/>
+            <form action="/delete_cuisines" method="post">
+                <button class="btn-danger" type="submit">Delete All</button>
+            </form>
+        </p>
+
+<!--
+        <p class="lead">Cover is a one-page template for building simple and
+        beautiful home pages. Download, edit the text, and add your own
+        fullscreen background color and photo to make it your own.
+
+        <small>    <br> <a href="http://bootsnipp.com/iframe/g6GWQ" target=
+              "_blank">Best viewed on full screen</a></small>
+
+        </p>
+
+        <p class="lead"><a class="btn btn-lg btn-info" href="#">Learn
+        more</a></p> -->
+      </div>
+
+      <div class="mastfoot">
+        <div class="inner">
+          <!-- Validation -->
+
+          <p>&nbsp</p>
+
+
+          <p>&nbsp</p>
+
+
+
+          <p>© 2014 Your Name ~ <a href=
+          "http://getbootstrap.com/">Bootstrap</a></p>
+        </div>
+      </div>
     </div>
+</div>
+</div>
+</div>
 </body>
 </html>
