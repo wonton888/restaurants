@@ -8,10 +8,12 @@
     <div class="container">
         <h1>Restaurants</h1>
 
+        <!-- Twig to display all restaurants and descriptions -->
         {% if restaurants is not empty %}
             <p>Here are all your restaurants:</p>
             <ul>
                 {% for restaurant in restaurants %}
+                    <li>{{ restaurant.getName }}</li>
                     <li>{{ restaurant.getDescription }}</li>
                 {% endfor %}
             </ul>

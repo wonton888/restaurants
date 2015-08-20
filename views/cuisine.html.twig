@@ -6,6 +6,8 @@
 </head>
 <body>
     <div class="container">
+
+        <!-- Twig to display all restaurants and descriptions -->
         <h1>{{ cuisine.getType }}</h1>
 
         {% if restaurants is not empty %}
@@ -23,10 +25,10 @@
         <form action='/restaurants' method='post'>
             <input id='cuisine_id' name='cuisine_id' type='hidden' value='{{ cuisine.getId() }}'>
             <label for ='name'>Restaurant Name:</label><br/>
-            <input id='name' name='name' type='text' placeholder="Wash the dog">
+            <input id='name' name='name' type='text' placeholder="" required>
             <br/>
             <label for ='description'>Restaurant Description:</label><br/>
-            <input id='description' name='description' type='text'>
+            <input id='description' name='description' type='text' required>
             <button class="btn-default" type='submit'>Add restaurant</button>
         </form>
 

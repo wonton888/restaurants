@@ -20,12 +20,17 @@
     Request::enableHttpMethodParameterOverride();
 
     $app->get("/", function() use ($app) {
+
         return $app['twig']->render('index.html.twig',
         array('cuisines' => Cuisine::getAll()));
     });
 
     $app->post("/cuisines", function() use ($app) {
-        $cuisine = new Cuisine($_POST['type']);
+        // $input = $_POST['type'];
+        // $clean_input = preg_quote($input, "'");
+        // // "/[-[\]{}()*+?.,\\^$|#']/"
+        // echo $clean_input;
+        $cuisine = new Cuisine(preg_quote($_POST['type'], "'"));
         $cuisine->save();
         return $app['twig']->render('index.html.twig',
         array('cuisines' => Cuisine::getAll()));
@@ -36,10 +41,28 @@
         return $app['twig']->render('delete_cuisines.html.twig');
     });
 
+    //
     $app->get("/cuisines/{id}", function($id) use ($app) {
         $cuisine = Cuisine::find($id);
+
         return $app['twig']->render('cuisine.html.twig',
-        array('cuisine' => $cuisine));
+        array('cuisine' => $cuisine, 'restaurants' => $cuisine->getRestaurants()));
+//        return $app['twig']->render('cuisine.html.twig',
+//        array('cuisine' => $cuisine));
+    });
+
+    $app->post("/restaurants", function() use ($app){
+        $cuisine_id = $_POST['cuisine_id'];
+        $name = preg_quote($_POST['name'], "'");
+        $description = preg_quote($_POST['description'], "'");
+        $restaurant = new Restaurant($description, $id = null, $cuisine_id, $name);
+        $restaurant->save();
+        $cuisine = Cuisine::find($cuisine_id);
+        return $app['twig']->render('cuisine.html.twig',
+        array('cuisine' => $cuisine, 'restaurants' => $cuisine->getRestaurants()));
+        // return $app['twig']->render('category.html.twig',
+        // array('category' => $category, 'tasks' => $category->getTasks()));
+
     });
 
     $app->patch("/cuisines/{id}", function($id) use ($app) {
@@ -70,22 +93,12 @@
         return $app['twig']->render('delete_restaurants.html.twig');
     });
 
-    $app->get("/restaurants", function() use ($app) {
-        return $app['twig']->render('restaurants.html.twig',
-        array('restaurants' => Restaurant::getAll()));
-    });
+    // $app->get("/restaurants", function() use ($app) {
+    //     return $app['twig']->render('restaurants.html.twig',
+    //     array('restaurants' => Restaurant::getAll()));
+    // });
 
-    $app->post("/restaurants", function() use ($app){
-        $cuisine_id = $_POST['cuisine_id'];
-        $name = $_POST['name'];
-        $description = $_POST['description'];
-        $restaurant = new Restaurant($description, $id = null, $cuisine_id, $name);
-        $restaurant->save();
-        $cuisine = Cuisine::find($cuisine_id);
-        return $app['twig']->render('cuisine.html.twig',
-        array('cuisine' => $cuisine, 'restaurants' => Restaurant::getAll()));
-
-    });
+    // displays all restaurants, form for adding or deleting restaurants
 
     return $app;
 
