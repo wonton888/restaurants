@@ -11,16 +11,17 @@ Setup
 ```console
 $ git clone https://github.com/samchalle/restaurants.git
 ```
-Install Silex/Twig/PHPUnit dependencies in the project folder:
+* Install Silex/Twig/PHPUnit dependencies in the project folder:
 ```console
 $ composer install
 ```
-Start your local host in the web folder:
+* Start your local host in the web folder:
 ```console
 $ php -S localhost:8000
 ```
 * Unzip restaurant_reviews.sql.zip and import it to your local server.
 * Navigate your browser to localhost:8000
+* To run tests using PHPUnit, create a copy of the database called **restaurant_reviews_test**
 
 Technologies Used
 ----------
