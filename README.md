@@ -7,15 +7,16 @@ This app lets users add/delete their favorite restaurants by the type of cuisine
 
 Setup
 ----------
-Some info:
+* Clone repository, install Silex/Twig/PHPUnit dependencies, and start your local host:
 ```console
 $ git clone https://github.com/samchalle/restaurants.git
+$ cd restaurants
+$ composer install
+$ cd web
+$ php -S localhost:8000
 ```
-* _Clone this repository_
-* _Run composer install in project folder_
-* _Unzip restaurant_reviews.sql and import to MySQL database_
-* _Start PHP server in web folder_
-* _Navigate web browser to localhost:8000_
+* Unzip restaurant_reviews.sql.zip and import it to your local server.
+* Navigate your browser to localhost:8000
 
 Technologies Used
 ----------
