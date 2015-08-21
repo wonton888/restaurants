@@ -11,7 +11,7 @@ Setup
 ```console
 $ git clone https://github.com/samchalle/restaurants.git
 ```
-* Install Silex/Twig/PHPUnit dependencies in the project folder:
+* Install Silex/Twig/PHPUnit via Composer in the project folder:
 ```console
 $ composer install
 ```
