@@ -1,7 +1,7 @@
 restaurants
 ==========
 
-By Samantha Maturen and Rick Hills, 19-Aug-2015
+By Samantha Maturen and Rick Hills, 19-Aug-2015<br>
 This app lets users add or delete entries for types of cuisines and add or delete restaurants under each cuisine type.
 
 Setup
