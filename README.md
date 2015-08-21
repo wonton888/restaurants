@@ -19,8 +19,8 @@ $ composer install
 ```console
 $ php -S localhost:8000
 ```
-* Unzip restaurant_reviews.sql.zip and import it to your local server.
-* Navigate your browser to localhost:8000
+* Unzip **restaurant_reviews.sql.zip** and import it to your local server.
+* Navigate your browser to **localhost:8000**
 * To run tests using PHPUnit, create a copy of the database called **restaurant_reviews_test**
 
 Technologies Used
